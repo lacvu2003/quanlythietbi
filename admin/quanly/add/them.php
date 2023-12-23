@@ -24,8 +24,9 @@
     margin: 0 auto;
     max-width: 570px;
     width: 100%;
-    background: white;
+    background: rgba(128, 128, 128, 0.11);
     padding: 40px;
+    border-radius: 10px;
   }
 
   .formbold-img {

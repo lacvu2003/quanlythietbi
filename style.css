@@ -246,7 +246,7 @@
     width: calc(100% - 78px);
     transition: all 0.5s ease;
     z-index: 2;
-    background-color: rgba(128, 128, 128, 0.11);
+    /* background-color: rgba(128, 128, 128, 0.11); */
     padding: 10px 10px;
   }
   .sidebar.open ~ .home{

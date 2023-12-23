@@ -35,13 +35,13 @@
         <i class="bx bx-menu" id="btn"></i>
       </div>
       <ul class="nav-list">
-        <li>
+        <!-- <li>
           <i class="bx bx-search"></i>
           <form action="index.php?quanly=tim" method="post">
             <input type="text" name="timkiem" placeholder="Tìm kiếm..." autocomplete="off"/>
           </form>
           <span class="tooltip">Tìm kiếm</span>
-        </li>
+        </li> -->
         <li>
           <a href="index.php">
             <i class="bx bx-grid-alt"></i>

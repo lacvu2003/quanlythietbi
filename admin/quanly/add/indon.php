@@ -14,11 +14,14 @@
     $query_in = mysqli_query($connect,$sql_in);
     $row = mysqli_fetch_array($query_in);
 
+    $pdf->Image('../../../image/logo-dark.png',35,0,50);
+    $pdf->Cell(0,10,'',0,1,'L');
+    $pdf->Cell(0,10,'',0,1,'L');
     $pdf->Cell(0,10,"Công Ty Cổ Phần Thương Mại Dịch Vụ Việt Đan",0,1,'L');
     $pdf->Cell(0,10,"PHIẾU NHẬN THIẾT BỊ",0,1,'C');
     $pdf->Cell(0,10,"Ngày: ".date("j/n/20y"),0,1,'C');
 
-    $width_cell = array(35,35,40,50,30,40,40,40,40);
+    $width_cell = array(35,45,40,50,40,30,40,40,40);
     
         $pdf->Cell($width_cell[0],10,'Mã phiếu nhận: ',0,0,'L');
         $pdf->Cell($width_cell[0],10,$row['MaPN'],0,1,'C');
@@ -38,7 +41,5 @@
         $pdf->Cell($width_cell[6],10,$row['NguoiNhanHang'],1,0,'C');
         $pdf->Cell($width_cell[7],10,$row['TinhTrangTiepNhan'],1,1,'C');
     
-    
-        
     $pdf->Output();
 ?>

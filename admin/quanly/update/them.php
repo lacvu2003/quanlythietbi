@@ -24,8 +24,9 @@
     margin: 0 auto;
     max-width: 570px;
     width: 100%;
-    background: white;
+    background: rgba(128, 128, 128, 0.11);
     padding: 40px;
+    border-radius: 10px;
   }
 
   .formbold-img {
@@ -152,6 +153,13 @@
             id="serial"
             placeholder="Serial"
             class="formbold-form-input"
+            <?php
+              if(isset($_GET['serial'])){
+            ?>
+            value="<?php echo $_GET['serial'] ?>"
+            <?php
+              }
+            ?>
             autocomplete = "off"
             required
             oninvalid="this.setCustomValidity('Chưa nhập Serial sản phẩm')" oninput="this.setCustomValidity('')"
@@ -166,6 +174,13 @@
             id="mapn"
             placeholder="Mã phiếu nhận"
             class="formbold-form-input"
+            <?php
+              if(isset($_GET['mapn'])){
+            ?>
+            value="<?php echo $_GET['mapn'] ?>"
+            <?php
+              }
+            ?>
             autocomplete = "off"
             required
             oninvalid="this.setCustomValidity('Chưa nhập mã phiếu')" oninput="this.setCustomValidity('')"

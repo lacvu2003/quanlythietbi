@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
 <style>
     @media screen and (max-width: 768px){
     table{
@@ -21,24 +22,26 @@
         }
     ?>
 </div>
-<table class="lietkenhap" border="1" cellspacing = "0">
-            <tr style="color: white; background-color: #11101D; border-bottom: none;">
-                <td>Serial</td>
-                <td>Mã phiếu nhận</td>
-                <td>Lỗi trước sửa chữa</td>
-                <td>Kết quả sữa</td>
-                <td>Nội dung sửa</td>
-                <td>Serial thay thế</td>
-                <td>Người sửa</td>
-                <td>Số ngày sửa</td>
-                <td>Ngày giao test</td>
-                <td>Người giao test</td>
-                <td>Người nhận test</td>
-                <td>Đơn giá</td>
-                <td>Bảo hành</td>
-                <td>Quản lý</td>
-            </tr>
-            
+<table id="lietkesua" class="lietkenhap" border="1" cellspacing = "0">
+            <thead>
+                <tr style="color: white; background-color: #11101D; border-bottom: none;">
+                    <td>Serial</td>
+                    <td>Mã phiếu nhận</td>
+                    <td>Lỗi trước sửa chữa</td>
+                    <td>Kết quả sữa</td>
+                    <td>Nội dung sửa</td>
+                    <td>Serial thay thế</td>
+                    <td>Người sửa</td>
+                    <td>Số ngày sửa</td>
+                    <td>Ngày giao test</td>
+                    <td>Người giao test</td>
+                    <td>Người nhận test</td>
+                    <td>Đơn giá</td>
+                    <td>Bảo hành</td>
+                    <td>Quản lý</td>
+                </tr>
+            </thead> 
+            <tbody>   
                     <?php
                         // include ('admin/config/config.php');
                         $sql1 = "select * from phieusuachua";
@@ -57,7 +60,7 @@
                         <td><?php echo $row1['NgayTest'] ?></td>
                         <td><?php echo $row1['NguoiGiaoTest'] ?></td>
                         <td><?php echo $row1['NguoiNhanTest'] ?></td>
-                        <td><?php echo number_format($row1['Dongia'],0,',','.'); ?></td>
+                        <td style="width: 110px;"><?php echo number_format($row1['Dongia'],0,',','.'); ?> vnđ</td>
                         <td><?php echo $row1['Baohanh'] ?></td>
                         <td style="width: 120px;"><a href="index.php?quanly=sua_update&id=<?php echo $row1['Serial_ID'] ?>">Sửa | </a> 
                         <?php 
@@ -75,4 +78,10 @@
                     <?php
                     }
                     ?>
+                    </tbody>
 </table>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script>
+    new DataTable('#lietkesua');
+</script>

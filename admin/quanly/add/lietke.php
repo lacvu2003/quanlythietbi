@@ -1,6 +1,36 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
 
 <style>
+    .sua{
+        border: 1px solid #1d1b31;
+        border-radius: 10px;
+        padding: 8px 8px;
+        background-color: #1d1b31;
+        margin-right: 10px;
+        color: white;
+    }
+    .xoa{
+        border: 1px solid #1d1b31;
+        border-radius: 10px;
+        padding: 8px 8px;
+        background-color: #1d1b31;
+        margin-left: 10px;
+        color: white;
+    }
+    .inphieu{
+        border: 1px solid #1d1b31;
+        border-radius: 10px;
+        padding: 6px 6px;
+        background-color: #1d1b31;
+        color: white;
+    }
+    .themsua{
+        border: 1px solid #1d1b31;
+        border-radius: 10px;
+        padding: 6px 6px;
+        background-color: #1d1b31;
+        color: white;
+    }
     @media screen and (max-width: 768px){
     table{
       display: block;
@@ -9,7 +39,6 @@
       -webkit-scrollbar{
         height: 12px;
       }
-      
     }
 }
 </style>
@@ -26,7 +55,7 @@
 <table id="example" class="lietkenhap display" border="1" cellspacing = "0">
             <thead>
                 <tr style="color: white; background-color: #11101D; border-bottom: none;">
-                    <td style="width: 150px;">Mã phiếu nhận</td>
+                    <td style="width: 70px;">Mã phiếu nhận</td>
                     <td>Tên phiếu</td>
                     <td>Serial</td>
                     <td>Tên thiết bị</td>
@@ -36,7 +65,7 @@
                     <td>Người nhận</td>
                     <td>Trạng thái </td>
                     <td>Tình trạng nhận</td>
-                    <td>Ngày nhận</td>
+                    <td style="width: 100px;">Ngày nhận</td>
                     <td>Quản lý</td>
                 </tr>
             </thead>
@@ -60,19 +89,20 @@
                             <td><?php echo $row1['TrangThaiPhieu'] ?></td>
                             <td><?php echo $row1['TinhTrangTiepNhan'] ?></td>
                             <td><?php echo $row1['NgayTaoPhieu'] ?></td>
-                            <td style="width: 150px;"><a href="index.php?quanly=sua&id=<?php echo $row1['MaPN'] ?>">Sửa </a> 
-                            <?php 
-                                if($_SESSION['dangnhap'] == 'user@vd.com'){
-                                    echo "";
-                                }
-                                else{
-                            ?>
-                                <a onclick="return confirm('Bạn có chắc chắn muốn xóa không ?');" href="admin/quanly/add/xuly.php?id=<?php echo $row1['MaPN'] ?>">| Xóa</a>
-                            <?php
-                                }
-                            ?>
-                            
-                            <br><br><hr><br><a href="admin/quanly/add/indon.php?id=<?php echo $row1['MaPN'] ?>">In phiếu</a></td>
+                            <td style="width: 150px;"><br><a class="sua" href="index.php?quanly=sua&id=<?php echo $row1['MaPN'] ?>">Sửa</a> 
+                                <?php 
+                                    if($_SESSION['dangnhap'] == 'user@vd.com'){
+                                        echo "";
+                                    }
+                                    else{
+                                ?>
+                                    <a class="xoa" onclick="return confirm('Bạn có chắc chắn muốn xóa không ?');" href="admin/quanly/add/xuly.php?id=<?php echo $row1['MaPN'] ?>">Xóa</a>
+                                <?php
+                                    }
+                                ?>
+                                <br><br><hr><br><a class="inphieu" href="admin/quanly/add/indon.php?id=<?php echo $row1['MaPN'] ?>">In phiếu</a>
+                                <br><br><a class="themsua" href="index.php?quanly=them_update&serial=<?php echo $row1['Serial'] ?>&mapn=<?php echo $row1['MaPN'] ?>">Thêm sửa</a>
+                            </td>
                         </tr>
                     
                     <?php
